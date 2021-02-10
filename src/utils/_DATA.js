@@ -24,7 +24,7 @@ let users = {
     johndoe: {
       id: 'johndoe',
       name: 'John Doe',
-      avatarURL: "http://www.masscue.org/wp-content/uploads/2017/03/male-no-image.jpg",
+      avatarURL: "https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg",
       answers: {
         "xj352vofupe1dqz9emx13r": 'optionOne',
         "vthrdm985a262al8qx3do": 'optionTwo',

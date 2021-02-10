@@ -1,6 +1,6 @@
 import { receiveUsers, saveUserAnswer, addUserQues } from "../actions/users";
 import { receiveQues, saveQuesAnswer, addQues } from "../actions/questions";
-import { setAuthedUser } from "../actions/authUser";
+import { setAuthedUser } from "../actions/authuser";
 import {_getUsers,_getQuestions,_saveQuestion,_saveQuestionAnswer} from "../utils/_DATA";
 
 

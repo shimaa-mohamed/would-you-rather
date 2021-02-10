@@ -5,11 +5,11 @@ export const SAVE_USER_ANSWER = "SAVE_USER_ANSWER";
 export function receiveUsers(users) {
   return {
     type: RECEIVE_USERS,
-    ...users,
+    users,
   };
 }
 
-export function addUserQUES(authedUser, id) {
+export function addUserQues(authedUser, id) {
   return {
     type: ADD_USER_QUES,
     authedUser,
