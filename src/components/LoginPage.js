@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authuser";
+import { Link } from "react-router-dom";
 
 class LoginPage extends Component {
   state = {
@@ -19,21 +20,20 @@ class LoginPage extends Component {
   render() {
     const { users } = this.props;
     const { selectedUser } = this.state;
-    console.log(users);
 
     return (
-        <div>
+        <div className="login">
           <div>
-            <p>Would You Rather App</p>
+            <p className="title">Would You Rather App</p>
           </div>
           <div>
-            <form onSubmit={this.handleLogin}>
+            {/* <form onSubmit={this.handleLogin}> */}
               <label>Select a user: </label>
               <div>
-                <select
+                <select className="select"
                   onChange={(e) => this.onSelectUser(e.target.value)}
                 >
-                  <option value=""> Select User</option>
+                  <option  className="option"value=""> Select User</option>
                   {Object.keys(users).map((user) => (
                     <option key={user} value={user}>
                       {user}
@@ -42,8 +42,8 @@ class LoginPage extends Component {
                 </select>
               </div>
 
-              <button>Login In</button>
-            </form>
+              <Link  ><button onClick={this.handleLogin}className="login-but"> Login In</button></Link>
+            {/* </form> */}
           </div>
         </div>
     );

@@ -16,11 +16,11 @@ export function addUserQues(authedUser, id) {
     id,
   };
 }
-export function saveUserAnswer(authedUser, qes_id, answer) {
+export function saveUserAnswer(authedUser, ques_id, answer) {
   return {
     type: SAVE_USER_ANSWER,
     authedUser,
-    qes_id,
+    ques_id,
     answer,
   };
 }
