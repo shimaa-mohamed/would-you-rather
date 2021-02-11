@@ -42,7 +42,7 @@ class LoginPage extends Component {
                 </select>
               </div>
 
-              <Link  ><button onClick={this.handleLogin}className="login-but"> Login In</button></Link>
+              <button onClick={this.handleLogin}className="login-but"> Login In</button>
             {/* </form> */}
           </div>
         </div>

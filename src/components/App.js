@@ -20,6 +20,7 @@ class App extends Component {
       console.log("loaded");
       this.setState({ loaded: true });
       this.props.dispatch(handleInitialQues()).then(() => console.log("done"));
+      // this.props.dispatch(handleInitialQues()).then(() => console.log("done"));
     });
   }
   state = {};

@@ -11,18 +11,25 @@ class DashBoard extends Component {
 
   componentDidMount() {
     this.props.dispatch(handleInitialQues());
+    // this.props.dispatch(handleInitialQues()).then(() => console.log("done"));
   }
 
-
-handleBut=(e)=>{
-    this.setState({selectedTab:e.target.value});
-    if(e.target.value==="Answered"){
-      this.setState({sortedKeys:this.fetchAnswered()})
+  handleBut = (e) => {
+    this.setState({ selectedTab: e.target.value });
+    if (e.target.value === "Answered") {
+      this.setState({ sortedKeys: this.fetchAnswered() });
     }
-}
+  };
 
   render() {
-    const { answeredQues,authedUser,user, unAnsweredQues, users, questions } = this.props;
+    const {
+      answeredQues,
+      authedUser,
+      user,
+      unAnsweredQues,
+      users,
+      questions,
+    } = this.props;
     const unAnswerdList = (
       <div>
         <ul>
@@ -32,7 +39,7 @@ handleBut=(e)=>{
                 <Question
                   user={users[questions[e].author]}
                   question={questions[e]}
-                  submit_or_result="Submit"
+                  submit_or_result="Answer"
                 />
               </li>
             );
@@ -59,7 +66,7 @@ handleBut=(e)=>{
       </div>
     );
     let listToShow;
-    if ((this.state.selectedTab === "unAnswered")) {
+    if (this.state.selectedTab === "unAnswered") {
       listToShow = unAnswerdList;
     } else {
       listToShow = answerdList;
@@ -92,20 +99,28 @@ handleBut=(e)=>{
 
 function mapStateToProps({ questions, authedUser, users }) {
   const user = users[authedUser];
-  const ans_keys=Object.keys(user.answers);
-  const answeredQues = ans_keys.sort((a,b)=>{return questions[a].timestamp - questions[b].timestamp})
-  console.log("et8yret:");
+  const ans_keys = Object.keys(user.answers);
+  console.log(ans_keys);
+
+
+  const answeredQues=questions?ans_keys.sort((a, b) => {
+    return questions[b].timestamp-questions[a].timestamp;
+  }):[]
   console.log(answeredQues);
-      
-  const unAnsweredQues =Object.keys(questions)
-          .filter((quesID) => !answeredQues.includes(quesID))
-          .sort((a, b) => {return questions[b].timestamp - questions[a].timestamp})
+
+  
+  const unAnsweredQues = Object.keys(questions)
+    .filter((quesID) => !answeredQues.includes(quesID))
+    .sort((a, b) => {
+      return questions[b].timestamp - questions[a].timestamp;
+    });
   return {
     answeredQues,
     unAnsweredQues,
     users,
     questions,
-    authedUser,user
+    authedUser,
+    user,
   };
 }
 

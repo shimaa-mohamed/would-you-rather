@@ -7,14 +7,7 @@ class Question extends Component {
   state = {navToPage:""};
   render() {
     const submit_or_result =this.props.submit_or_result;
-    // handleBut=()=>{
-    //   if(this.props.submit_or_result==="Submit"){
-    //     this.state.navToPage="/ques"
-    //   }
-    //   else{
 
-    //   }
-    // }
     
     return (
       <div className="mainInfo">
